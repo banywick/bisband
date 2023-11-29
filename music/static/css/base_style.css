@@ -3,3 +3,12 @@ body{
     background-size: cover;
 
 }
+
+.wrapper{
+    margin: 0 auto;
+
+    width: 60%;
+    height: 100vh;
+    background: #90bbc5e8;
+    border: 2px solid black;
+}
