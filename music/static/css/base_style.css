@@ -1,15 +1,9 @@
-body{
-    background-image: url("../img/site2.jpg");
+
+.wrapper {
+    background-image: url("../img/background.jpg");
     background-size: cover;
-
-}
-
-.wrapper{
-    margin: 0 auto;
-
-    width: 60%;
-    /*height: 100vh;*/
-    background: #90bbc5e8;
     border: 2px solid black;
-    box-shadow: -2px -17px 47px 40px rgba(255, 74, 36, 0.2); ;
+    max-width: 100%;
+    height: 100vh;
+
 }
