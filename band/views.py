@@ -1,8 +1,5 @@
 from django.shortcuts import render
-
-from django.shortcuts import render
-
-from band.models import Song
+from band.models import Song, Video
 
 def index(request):
     return render(request, 'band/index.html')
@@ -24,5 +21,6 @@ def music(request):
     return render(request, 'band/music.html', {'songs': songs})
 
 def video(request):
-    return render(request, 'band/video.html')
+    videos = Video.objects.all()
+    return render(request, 'band/video.html', {'videos': videos})
 

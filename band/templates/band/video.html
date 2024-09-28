@@ -1,8 +1,28 @@
 {% extends 'band/base.html' %}
+{% load static %}
 
-{% block title %}Музыка и видео{% endblock %}
+{% block title %}Видео{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'band/css/video.css' %}">
+{% endblock %}
 
 {% block content %}
-<h1>Audio and Video</h1>
-<p>Listen to our music and watch our videos.</p>
+<h1>Видео</h1>
+<div class="video-list">
+    {% for video in videos %}
+        <div class="video-item">
+            <h2>{{ video.title }}</h2>
+            <p>{{ video.description }}</p>
+            <div class="video-embed">
+                <iframe width="560" height="315"
+                src="https://www.youtube.com/embed/{{ video.youtube_url }}" frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;
+                picture-in-picture" allowfullscreen></iframe>
+                {% comment %} <iframe src="https://www.youtube.com/watch?v=AtwgmqC_OYk" width="560" height="315" frameborder="0" allowfullscreen></iframe> {% endcomment %}
+                {% comment %} <iframe src="https://youtu.be/AtwgmqC_OYk?si=PE4AHcrRAc-tKN5P" width="560" height="315" frameborder="0" allowfullscreen></iframe> {% endcomment %}
+            </div>
+        </div>
+    {% endfor %}
+</div>
 {% endblock %}
