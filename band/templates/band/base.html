@@ -1,0 +1,39 @@
+<!-- templates/band/base.html -->
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}БИСБЭНД{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'band/css/style.css' %}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'index' %}">Главная страница</a></li>
+                <li><a href="{% url 'news' %}">Новости группы</a></li>
+                <li><a href="{% url 'schedule' %}">Концерты</a></li>
+                <li><a href="{% url 'gallery' %}">Галерея</a></li>
+                <li><a href="{% url 'music' %}">Музыка</a></li>
+                <li><a href="{% url 'video' %}">Видео</a></li>
+                <li><a href="{% url 'contact' %}">Сотрудничество</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="body_wrapper">
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2024 БИСБЭНД. Все права защищены.</p>
+    </footer>
+
+    <script src="{% static 'band/js/parallax.js' %}"></script>
+    <script src="{% static 'band/js/music.js' %}"></script>
+</body>
+</html>

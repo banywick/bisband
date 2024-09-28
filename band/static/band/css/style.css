@@ -1,0 +1,104 @@
+/* static/band/css/style.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    background-image: url('../img/background1.jpg'); /* Замените на путь к вашему фону */
+    background-size: 2050px 1080px;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    overflow-x: hidden; /* Предотвращает горизонтальный скроллинг */
+}
+
+
+.body_wrapper {
+    border: 1px solid white;
+    background-color: #877fff73;
+    width: 800px;
+    margin: 0 auto;
+}
+
+header {
+    background-color: #333;
+    padding: 25px 0;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+main {
+    padding: 80px 20px 80px 20px; /* Отступы сверху и снизу для учета фиксированных header и footer */
+}
+
+
+.title {
+    text-align: center;
+    color: white;
+    font-family: cursive;
+    font-size: 25px;
+}
+
+.photo {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.photo img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 66px;
+}
+
+.description {
+    text-align: center;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 1.2em;
+    color: #ffffff;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: 1000;
+}
+
+/* Адаптация под мобильные устройства */
+@media (max-width: 768px) {
+    header, footer {
+        padding: 15px 0;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 5px 0;
+    }
+
+    main {
+        padding: 100px 10px 100px 10px; /* Отступы сверху и снизу для учета фиксированных header и footer */
+    }
+}

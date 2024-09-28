@@ -23,7 +23,9 @@ from config import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('band.urls')),
-]
+] 
 
+# Добавляем обслуживание медиафайлов в режиме разработки
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
