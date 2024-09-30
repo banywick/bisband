@@ -24,7 +24,7 @@ from dotenv import dotenv_values
 SECRET_KEY = dotenv_values().get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -79,8 +79,15 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': dotenv_values().get('NAME'),
+        'USER': dotenv_values().get('USER'),
+        'PASSWORD': dotenv_values().get('PASSWORD'),
+        'HOST': 'your_database_host',  # Оставьте пустым для локального хоста
+        'PORT': 'your_database_port',  # Оставьте пустым для порта по умолчанию (3306)
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        },
     }
 }
 
