@@ -1,8 +1,21 @@
 {% extends 'band/base.html' %}
+{% load static %}
 
-{% block title %}Фото{% endblock %}
+{% block title %}Фотографии{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'band/css/photo.css' %}">
+{% endblock %}
 
 {% block content %}
-<h1>Галерея</h1>
-<p>Browse through our concert photos and behind-the-scenes shots.</p>
+<h1>Фото галерея</h1>
+<div class="photo-list">
+    {% for photo in photos %}
+        <div class="photo-item">
+            <h2>{{ photo.title }}</h2>
+            <img src="{{ photo.image.url }}" alt="{{ photo.title }}">
+            <p>{{ photo.description }}</p>
+        </div>
+    {% endfor %}
+</div>
 {% endblock %}

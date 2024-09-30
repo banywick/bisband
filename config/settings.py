@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 import os
 from pathlib import Path
+from dotenv import dotenv_values
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
@@ -20,7 +21,7 @@ from pathlib import Path
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-@(x^d6z6$+xoa^l15w%#+5n3++1(u6ix#3)lrqrwfsngido%5w'
+SECRET_KEY = dotenv_values().get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -39,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'band',
+    'adminsortable2',
 ]
 
 MIDDLEWARE = [

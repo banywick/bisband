@@ -24,3 +24,32 @@ class Video(models.Model):
     class Meta:
         verbose_name = 'Видео'
         verbose_name_plural = 'Видео' 
+
+
+
+class Photo(models.Model):
+    title = models.CharField(max_length=255, verbose_name='Название')
+    description = models.TextField(blank=True, null=True, verbose_name='Описание')
+    image = models.ImageField(upload_to='photos/', verbose_name='Фото')
+    order = models.PositiveIntegerField(default=0, blank=False, null=False)
+
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        verbose_name = 'Фото'
+        verbose_name_plural = 'Фотографии' 
+        ordering = ['order']
+
+
+class Application(models.Model):
+    name = models.CharField(max_length=255, verbose_name='Имя')  
+    email = models.EmailField(verbose_name='Почта')   
+    text = models.TextField(verbose_name='Текст')
+
+    def __str__(self) -> str:
+        return f'{self.name}'  
+    
+    class Meta:
+        verbose_name = 'Заявка'
+        verbose_name_plural = 'Заявки' 

@@ -1,8 +1,47 @@
 {% extends 'band/base.html' %}
+{% load static %}
 
 {% block title %}Контакты{% endblock %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'band/css/contact.css' %}">
+{% endblock %}
+
 {% block content %}
-<h1>Контакты Us</h1>
-<p>Get in touch with us for collaborations and bookings.</p>
+<div class="container">
+    <h1>Сотрудничество</h1>
+
+    <div class="contact-info">
+        <h2>Контактная информация</h2>
+        <p>Email: android19377@gmail.com</p>
+        <div class="telegram-button">
+            <a href="https://t.me/Bany_Wick" target="_blank">Связаться в Telegram</a>
+        </div>
+    </div>
+
+    <div class="technical-rider">
+        <h2>Технический райдер</h2>
+        <h3>Оборудование</h3>
+        <ul>
+            <li>Микрофоны: 2 шт.</li>
+            <li>Гитарные комбики: 2 шт.</li>
+            <li>Басовый комбик: 1 шт.</li>
+            <li>Напольные мониторы: 2 шт.</li>
+        </ul>
+        <h3>Доролнительно</h3>
+        <ul>
+            <li>Вода на сцену: 4 шт.</li>
+        </ul>
+    </div>
+
+    <h2>Форма для отправки заявки</h2>
+    <div class="contact-form">
+        <form id='contact_form' method="POST" >
+        {% csrf_token %}
+        {{ form.as_p }}
+    </form>
+    <button form='contact_form'  type="submit">Отправить</button>
+    </div>
+
+</div>
 {% endblock %}
