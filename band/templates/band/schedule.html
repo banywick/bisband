@@ -1,8 +1,30 @@
 {% extends 'band/base.html' %}
+{% load static %}
+
 
 {% block title %}Концерты{% endblock %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'band/css/shedule.css' %}">
+{% endblock %}
+
 {% block content %}
-<h1>Concert Schedule</h1>
-<p>Check out our upcoming concerts and events.</p>
+<h1>Концерты</h1>
+
+<div class="concert-list">
+    {% for concert in concerts %}
+        {% if concert.link %}
+            <a href="{{ concert.link }}" class="concert-item-link">
+        {% endif %}
+        <div class="concert-item">
+            <img src="{{ concert.image.url }}" alt="{{ concert.title }}">
+            <h2>{{ concert.title }}</h2>
+            <p>{{ concert.description }}</p>
+            <p><strong>Начало концерта:</strong> {{ concert.date }}</p>
+        </div>
+        {% if concert.link %}
+            </a>
+        {% endif %}
+    {% endfor %}
+</div>
 {% endblock %}

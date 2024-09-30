@@ -1,8 +1,23 @@
 {% extends 'band/base.html' %}
-
+{% load static %}
 {% block title %}Новости{% endblock %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'band/css/news.css' %}">
+{% endblock %}
+
 {% block content %}
-<h1>Latest News</h1>
-<p>Stay updated with the latest news and events.</p>
+<h1>Новости</h1>
+
+<div class="news-list">
+    {% for item in news %}
+        <div class="news-item">
+            <img src="{{ item.image.url }}" alt="{{ item.title }}">
+            <h2>{{ item.title }}</h2>
+            <p>{{ item.description }}</p>
+            <p><strong>Дата:</strong> {{ item.date }}</p>
+            <a href="{% url 'contact' %}"> 👉 Связаться с нами</a>
+        </div>
+    {% endfor %}
+</div>
 {% endblock %}

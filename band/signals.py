@@ -15,5 +15,5 @@ async def send_telegram_message(chat_id, message):
 @receiver(post_save, sender=Application)
 def send_telegram_notification(sender, instance, created, **kwargs):
     if created:  # только если объект создан
-        message =  message = f"Новая заявка на выступление:\nИмя: {instance.name}\nEmail: {instance.email}\nСообщение: {instance.text}"
+        message =  message = f"Новая заявка на выступление с нашего сайта:\nИмя: {instance.name}\nEmail: {instance.email}\nСообщение: {instance.text}"
         asyncio.run(send_telegram_message(CHAT_ID, message))

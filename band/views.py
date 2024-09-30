@@ -1,15 +1,17 @@
 from django.shortcuts import redirect, render
-from band.models import Song, Video, Photo
+from band.models import Concert, News, Song, Video, Photo
 from .forms import ContactForm
 
 def index(request):
     return render(request, 'band/index.html')
 
 def news(request):
-    return render(request, 'band/news.html')
+    news = News.objects.all().order_by('-date')
+    return render(request, 'band/news.html', {'news': news})
 
 def schedule(request):
-    return render(request, 'band/schedule.html')
+    concerts = Concert.objects.all().order_by('date')
+    return render(request, 'band/schedule.html', {'concerts': concerts})
 
 def contact(request):
     if request.method == 'POST':

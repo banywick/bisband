@@ -1,11 +1,13 @@
 from django.contrib import admin
 from adminsortable2.admin import SortableAdminMixin
 from django.utils.html import format_html
-from .models import Song, Video, Photo, Application
+from .models import *
 
 admin.site.register(Song)
 admin.site.register(Video)
 admin.site.register(Application)
+admin.site.register(Concert)
+admin.site.register(News)
 
 class PhotoAdmin(SortableAdminMixin, admin.ModelAdmin):
     list_display = ('title', 'image_tag')

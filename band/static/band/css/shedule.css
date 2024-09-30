@@ -1,0 +1,39 @@
+.concert-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.concert-item {
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    color: white;
+}
+
+.concert-item:hover {
+    transform: scale(1.05);
+}
+
+.concert-item p {
+    color: white;
+}
+
+.concert-item img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.concert-item h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+}

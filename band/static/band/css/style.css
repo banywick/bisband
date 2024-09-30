@@ -1,5 +1,3 @@
-/* static/band/css/style.css */
-
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -11,7 +9,6 @@ body {
     background-repeat: no-repeat;
     overflow-x: hidden; /* Предотвращает горизонтальный скроллинг */
 }
-
 
 .body_wrapper {
     border: 1px solid white;
@@ -49,7 +46,6 @@ main {
     padding: 80px 20px 80px 20px; /* Отступы сверху и снизу для учета фиксированных header и footer */
 }
 
-
 .title {
     text-align: center;
     color: white;
@@ -70,10 +66,35 @@ main {
 
 .description {
     text-align: center;
-    text-align: center;
     margin-top: 50px;
     font-size: 1.2em;
     color: #ffffff;
+}
+
+.description a {
+    text-decoration: none;
+    color: chocolate;
+    font-size: 20px;
+}
+
+.social-media {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.social-media a {
+    display: inline-block;
+    margin: 0 10px;
+    transition: transform 0.3s;
+}
+
+.social-media a img {
+    width: 40px;
+    height: 40px;
+}
+
+.social-media a:hover {
+    transform: scale(1.2);
 }
 
 footer {
