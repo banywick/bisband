@@ -12,10 +12,11 @@
 <div class="photo-list">
     {% for photo in photos %}
         <div class="photo-item">
-            <h2>{{ photo.title }}</h2>
+            <h2>{% if photo.title %}{{photo.title}}{% else %}{% endif %}</h2>
             <img src="{{ photo.image.url }}" alt="{{ photo.title }}">
             <p>{{ photo.description }}</p>
         </div>
     {% endfor %}
 </div>
 {% endblock %}
+

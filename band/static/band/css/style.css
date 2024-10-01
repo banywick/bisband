@@ -40,6 +40,12 @@ nav ul li {
 nav ul li a {
     color: #fff;
     text-decoration: none;
+    transition: color 0.3s, transform 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ff6347; /* Цвет при наведении */
+    transform: scale(1.5); /* Увеличение при наведении */
 }
 
 main {
