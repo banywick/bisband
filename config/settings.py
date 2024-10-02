@@ -134,9 +134,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Настройки статических файлов
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    BASE_DIR / 'static',
-]
+# STATICFILES_DIRS = [
+#     BASE_DIR / 'static',
+# ]
 
 # Настройки медиафайлов
 MEDIA_URL = '/media/'
