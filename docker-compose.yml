@@ -30,6 +30,11 @@ services:
       - "8080:80"
     depends_on:
       - web
+    volumes:
+      - static_volume:/bisband/staticfiles
+      - media_volume:/bisband/media
 
 volumes:
   postgres_data:
+  static_volume:
+  media_volume:
