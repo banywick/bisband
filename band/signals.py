@@ -3,10 +3,10 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from telegram import Bot
 from .models import Application
-from dotenv import dotenv_values
+import os
 
-BOT_TOKEN = dotenv_values().get('BOT_TOKEN')
-CHAT_ID = dotenv_values().get('CHAT_ID')
+BOT_TOKEN = os.getenv('BOT_TOKEN')
+CHAT_ID = os.getenv('CHAT_ID')
 
 async def send_telegram_message(chat_id, message):
     bot = Bot(token=BOT_TOKEN)
