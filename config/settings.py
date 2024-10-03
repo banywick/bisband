@@ -130,7 +130,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # Путь к директории, где будут собираться статические файлы при использовании collectstatic
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Настройки статических файлов
 STATIC_URL = '/static/'
