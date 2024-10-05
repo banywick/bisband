@@ -32,6 +32,11 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['bisband.ru', '127.0.0.1']
 
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Application definition
