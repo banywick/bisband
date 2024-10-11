@@ -12,7 +12,7 @@ services:
 
   web:
     build: .
-    command: gunicorn config.wsgi:application --bind 0.0.0.0:8000
+    entrypoint: sh -c "python manage.py collectstatic --noinput && gunicorn config.wsgi:application --bind 0.0.0.0:8000"
     volumes:
       - /home/container_static/static:/app/static
       - /home/container_static/media:/app/media
@@ -21,8 +21,7 @@ services:
     depends_on:
       - db
     environment:
-      DATABASE_URL: ${DATABASE_URL}
-
+      DATABRES_URL: ${DATABASE_URL}
 
 volumes:
   postgres_data:
