@@ -1,17 +1,18 @@
-# forms.py
-from cProfile import label
 from django import forms
+from captcha.fields import CaptchaField
 from .models import Application
 
 class ContactForm(forms.ModelForm):
+    captcha = CaptchaField()
+
     class Meta:
         model = Application
         fields = ['name', 'email', 'text']
         labels = {
-        'name': '',
-        'email': '',
-        'text': '',
-    }
+            'name': '',
+            'email': '',
+            'text': '',
+        }
 
     def __init__(self, *args, **kwargs):
         super(ContactForm, self).__init__(*args, **kwargs)

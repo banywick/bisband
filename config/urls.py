@@ -23,6 +23,7 @@ from config import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('band.urls')),
+    path('captcha/', include('captcha.urls')),
 ] 
 
 # Добавляем обслуживание медиафайлов в режиме разработки

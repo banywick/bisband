@@ -31,9 +31,11 @@ CSRF_TRUSTED_ORIGINS = ['https://bisband.ru', 'https://www.bisband.ru']
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'bisband.ru', 'www.bisband.ru']
+# ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 SECURE_SSL_REDIRECT = True
@@ -53,6 +55,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'band',
     'adminsortable2',
+    'captcha',
 ]
 
 MIDDLEWARE = [
