@@ -27,10 +27,13 @@ env = load_dotenv()
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('SECRET_KEY')
 
+CSRF_TRUSTED_ORIGINS = ['https://bisband.ru', 'https://www.bisband.ru']
+
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['bisband.ru', '127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1', 'bisband.ru', 'www.bisband.ru']
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 SECURE_SSL_REDIRECT = True

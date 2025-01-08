@@ -8,50 +8,18 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data/
 
-  nginx:
-    container_name: nginx
-    working_dir: /app
-    image: nginx:stable-alpine
-    restart: always
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - static:/app/static
-      - media:/app/media
-      - ./docker/nginx/prod/:/etc/nginx/conf.d:ro
-      - ./docker/certbot/conf:/etc/letsencrypt:ro
-      - ./docker/certbot/www:/var/www/certbot:ro
-    depends_on:
-      - django
-
-  django:
+  web:
     build: .
-    command: gunicorn config.wsgi:application --bind 0.0.0.0:8000
+    entrypoint: sh -c "python manage.py collectstatic --noinput && gunicorn config.wsgi:application --bind 0.0.0.0:8000"
     volumes:
-      - .:/app
-      - static_volume:/app/static
-      - media_volume:/app/media
+      - /home/container_static/static:/app/static
+      - /home/container_static/media:/app/media
     ports:
       - "8000:8000"
     depends_on:
       - db
     environment:
-      DATABASE_URL: ${DATABASE_URL}
-
-  certbot:
-    image: certbot/certbot
-    container_name: certbot
-    volumes:
-      - ./docker/certbot/conf:/etc/letsencrypt:rw
-      - ./docker/certbot/www:/var/www/certbot:rw
-    command: certonly --webroot --webroot-path=/var/www/certbot/ --email android19377@gmail.com --agree-tos --no-eff-email -d bisband.ru -d www.bisband.ru
-    depends_on:
-      - nginx
+      DATABRES_URL: ${DATABASE_URL}
 
 volumes:
   postgres_data:
-  static:
-  media:
-  static_volume:
-  media_volume:
